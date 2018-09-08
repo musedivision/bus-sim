@@ -1,0 +1,20 @@
+{
+  "name": "bus-sim",
+  "version": "1.0.0",
+  "description": "Bus in a carpark simulator",
+  "main": "index.js",
+  "scripts": {
+    "install": "npm i -g mocha",
+    "test": "mocha run"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/musedivision/bus-sim.git"
+  },
+  "author": "Patrick McCaffrey",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/musedivision/bus-sim/issues"
+  },
+  "homepage": "https://github.com/musedivision/bus-sim#readme"
+}
