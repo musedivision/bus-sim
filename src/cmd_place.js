@@ -1,5 +1,5 @@
 "use strict";
-const validFacingValues = ["NORTH", "EAST", "WEST", "SOUTH"];
+const validFacingValues = ["NORTH", "EAST", "SOUTH", "WEST"];
 const isValidFacing = (f) => { return validFacingValues.includes(f) };
 
 

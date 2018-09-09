@@ -3,6 +3,10 @@
 const PLACE = require('./cmd_place');
 const REPORT = require('./cmd_report');
 
+const commands = {
+    "PLACE": PLACE,
+    "REPORT": REPORT,
+};
 
 // initialise the bus position / app state
 const initState = () => {
@@ -28,12 +32,6 @@ const runCommand = (prevState, command) => {
     return {state, output};
 };
 
-
-
-const commands = {
-    "PLACE": PLACE,
-    "REPORT": REPORT,
-};
 
 /*
  *  BUS SIMULATOR
