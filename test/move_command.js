@@ -6,18 +6,37 @@ const MOVE = require('../src/cmd_move.js');
 
 // MOVE will move the bus one unit forward in the direction it is currently facing.
 
+
 describe('MOVE COMMAND', function() {
 
     describe('MOVE - move the bus 1 unit forward in the direction it is currently facing ', function () {
 
-        it('should move command should move bus along 1 unit', function(){
+        it('should move bus 1 unit NORTH', function(){
 
-            const start_position = { x: 0, y: 0, facing: "NORTH" };
+            const { state } = MOVE({ x: 0, y: 0, facing: "NORTH" });
 
-            const { state } = MOVE(start_position);
+            assert.equal(state.y, 1);
+        }),
 
-            assert.equal(state.y, 1, 'should have moved north 1');
+        it('should move bus 1 unit EAST', function(){
 
+            const { state } = MOVE({ x: 2, y: 0, facing: "EAST" });
+
+            assert.equal(state.y, 1);
+        }),
+
+        it('should move bus 1 unit SOUTH', function(){
+
+            const { state } = MOVE({ x: 0, y: 1, facing: "SOUTH" });
+
+            assert.equal(state.y, 0);
+        }),
+
+        it('should move bus 1 unit WEST', function(){
+
+            const { state } = MOVE({ x: 0, y: 0, facing: "WEST" });
+
+            assert.equal(state.y, 1);
         })
     })
 });
