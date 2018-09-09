@@ -18,10 +18,9 @@ const testTurn = (fn) => {
 };
 
 
+describe('LEFT RIGHT COMMANDs', function() {
 
-describe('TURN - LEFT - RIGHT COMMANDs', function() {
-
-    describe('TURN LEFT- rotate the bus 90 degrees in the specified direction', function () {
+    describe('TURN - rotate the bus 90 degrees in the specified direction', function () {
 
         it('should turn bus LEFT ', function(){
 
@@ -39,8 +38,8 @@ describe('TURN - LEFT - RIGHT COMMANDs', function() {
 
             rightTest("NORTH", "EAST");
             rightTest("EAST", "SOUTH");
-            rightTest("SOUTH", "EAST");
-            rightTest("EAST", "NORTH");
+            rightTest("SOUTH", "WEST");
+            rightTest("WEST", "NORTH");
         })
     })
 });

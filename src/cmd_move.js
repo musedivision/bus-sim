@@ -19,9 +19,10 @@ module.exports = (state) => {
     y += y2;
 
     if( isValidMove(x, y) ){
-        return { state: { x, y, facing }}
-    } else {
-        return { state} ;
+        state.x = x;
+        state.y = y;
     }
+
+    return { state }
 
 };

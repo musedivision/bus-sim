@@ -1,9 +1,8 @@
 "use strict";
+const isInsideCarpark = require('./isInsideCarpark');
+
 const validFacingValues = ["NORTH", "EAST", "SOUTH", "WEST"];
 const isValidFacing = (f) => { return validFacingValues.includes(f) };
-
-
-const isInsideCarpark = (z) =>  ( z >= 0) && (z <= 5) ;
 
 
 module.exports = (state, args) => {
