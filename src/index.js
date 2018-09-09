@@ -1,5 +1,6 @@
 "use strict";
 
+const PLACE = require('./cmd_place');
 // initialise the bus position / app state
 const initState = () => {
     return {x: false,y: false, facing: false}
@@ -21,11 +22,10 @@ const runCommand = (prevState, command) => {
     return {state, output};
 };
 
+
+
 const commands = {
-    "PLACE": (state, args) => {
-        const {x, y, facing } = args;
-        return { state: {x, y, facing} }
-    },
+    "PLACE": PLACE,
     "REPORT": (state) => {
         const {x, y, facing} = state;
         return { output: `${x},${y},${facing}`}

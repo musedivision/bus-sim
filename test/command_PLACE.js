@@ -28,5 +28,15 @@ describe('PLACE COMMAND', function() {
             assert.equal(output, '0,1,NORTH');
 
         })
+
+
+        it('should return text "4,3,SOUTH" ', function(){
+
+            let { state } = app.runCommand(state0, "PLACE 4,3,NORTH");
+            let { output } = app.runCommand(state, "REPORT");
+
+            assert.equal(output, '4,3,NORTH');
+
+        })
     })
 });
