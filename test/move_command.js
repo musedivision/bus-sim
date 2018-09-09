@@ -13,9 +13,9 @@ describe('MOVE COMMAND', function() {
 
         it('should move bus 1 unit NORTH', function(){
 
-            const { state } = MOVE({ x: 0, y: 0, facing: "NORTH" });
+            const { state } = MOVE({ x: 0, y: 2, facing: "NORTH" });
 
-            assert.equal(state.y, 1);
+            assert.equal(state.y, 3);
             assert.equal(state.x, 0);
         }),
 
@@ -24,20 +24,20 @@ describe('MOVE COMMAND', function() {
             const { state } = MOVE({ x: 2, y: 0, facing: "EAST" });
 
             assert.equal(state.y, 0);
-            assert.equal(state.x, 1);
+            assert.equal(state.x, 3);
         }),
 
         it('should move bus 1 unit SOUTH', function(){
 
-            const { state } = MOVE({ x: 0, y: 1, facing: "SOUTH" });
+            const { state } = MOVE({ x: 0, y: 2, facing: "SOUTH" });
 
-            assert.equal(state.y, 0);
+            assert.equal(state.y, 1);
             assert.equal(state.x, 0);
         }),
 
         it('should move bus 1 unit WEST', function(){
 
-            const { state } = MOVE({ x: 0, y: 0, facing: "WEST" });
+            const { state } = MOVE({ x: 2, y: 0, facing: "WEST" });
 
             assert.equal(state.x, 1);
             assert.equal(state.y, 0);

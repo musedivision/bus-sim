@@ -1,5 +1,6 @@
 "use strict";
 
+// 0,0 is south west most corner
 const moveInDirection = {
     "NORTH": { x: 0, y: 1 },
     "SOUTH": { x: 0, y: -1 },
