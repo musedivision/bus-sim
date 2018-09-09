@@ -28,17 +28,17 @@ describe('INVALID MOVE COMMAND', function() {
 
         it('should not move bus outside carpark EAST', function(){
 
-            const { state } = MOVE({ x: 0, y: 0, facing: "EAST" });
+            const { state } = MOVE({ x: 5, y: 0, facing: "EAST" });
 
             assert.equal(state.y, 0);
-            assert.equal(state.x, 0);
+            assert.equal(state.x, 5);
         }),
 
         it('should not move bus outside carpark WEST', function(){
 
-            const { state } = MOVE({ x: 0, y: 5, facing: "WEST" });
+            const { state } = MOVE({ x: 0, y: 0, facing: "WEST" });
 
-            assert.equal(state.y, 5);
+            assert.equal(state.y, 0);
             assert.equal(state.x, 0);
         })
     })
