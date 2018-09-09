@@ -19,6 +19,9 @@ const runCommand = (prevState, command) => {
     const runner = commands[cmd];
 
     const {state, output} = runner(prevState,args);
+
+    // console.log(prevState, args, state, output);
+
     return {state, output};
 };
 
