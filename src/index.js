@@ -1,6 +1,9 @@
 "use strict";
 
 const PLACE = require('./cmd_place');
+const REPORT = require('./cmd_report');
+
+
 // initialise the bus position / app state
 const initState = () => {
     return {x: false,y: false, facing: false}
@@ -29,10 +32,7 @@ const runCommand = (prevState, command) => {
 
 const commands = {
     "PLACE": PLACE,
-    "REPORT": (state) => {
-        const {x, y, facing} = state;
-        return { output: `${x},${y},${facing}`}
-    },
+    "REPORT": REPORT,
 };
 
 /*
@@ -43,5 +43,6 @@ const commands = {
  */
 module.exports = {
     initState,
-    runCommand
+    runCommand,
+    commands
 };
