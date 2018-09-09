@@ -1,9 +1,7 @@
 "use strict";
-const isInsideCarpark = require('./isInsideCarpark');
+const { isInsideCarpark, orients } = require('./map.js');
 
-const validFacingValues = ["NORTH", "EAST", "SOUTH", "WEST"];
-const isValidFacing = (f) => { return validFacingValues.includes(f) };
-
+const isValidFacing = (f) => { return orients.includes(f) };
 
 module.exports = (state, args) => {
     const {x, y, facing } = args;

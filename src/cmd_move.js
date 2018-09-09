@@ -1,5 +1,5 @@
 "use strict";
-const isInsideCarpark = require('./isInsideCarpark');
+const { isInsideCarpark } = require('./map.js');
 
 // 0,0 is south west most corner
 const moveInDirection = {
@@ -24,5 +24,4 @@ module.exports = (state) => {
     }
 
     return { state }
-
 };

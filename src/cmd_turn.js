@@ -1,5 +1,5 @@
 "use strict";
-const orients = ["NORTH", "EAST", "SOUTH", "WEST"];
+const { orients } = require('./map.js');
 
 const loopBack = (arr) => (i) =>  i === -1 ? arr.length -1 : 0;
 
