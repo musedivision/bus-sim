@@ -7,11 +7,12 @@ const isBusPlaced = (state) => {
 
 module.exports = (state) => {
     const {x, y, facing} = state;
+    let output;
 
     if( isBusPlaced(state) ){
-        return { output: `${x},${y},${facing}`}
-    } else {
-        return { }
+        output = `${x},${y},${facing}`
     }
+
+    return { state, output }
 
 }

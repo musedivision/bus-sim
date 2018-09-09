@@ -2,10 +2,15 @@
 
 const PLACE = require('./cmd_place');
 const REPORT = require('./cmd_report');
+const MOVE = require('./cmd_move');
+const { left, right } = require('./cmd_turn');
 
 const commands = {
     "PLACE": PLACE,
     "REPORT": REPORT,
+    "MOVE": MOVE,
+    "LEFT": left,
+    "RIGHT": right
 };
 
 // initialise the bus position / app state
@@ -15,7 +20,10 @@ const initState = () => {
 
 function parseCommand(command){
     const [ cmd, args = false ] = command.split(' ');
-    const [ x, y, facing ] = args ? args.split(',') : [];
+    let [ x, y, facing ] = args ? args.split(',') : [];
+    x = x*1;
+    y = y*1;
+
     return { cmd, args: {x, y, facing } }
 }
 
@@ -27,11 +35,10 @@ const runCommand = (prevState, command) => {
 
     const {state, output} = runner(prevState,args);
 
-    // console.log(prevState, args, state, output);
+    // console.log({prevState, args, state, output, command});
 
     return {state, output};
 };
-
 
 /*
  *  BUS SIMULATOR
