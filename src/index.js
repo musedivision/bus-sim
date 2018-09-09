@@ -5,10 +5,31 @@ const initState = () => {
     return {x: false,y: false, facing: false}
 };
 
-// receives the command and state and returns the state and output - if any
-const runCommand = (cmd, state) => {
+function parseCommand(command){
+    const [ cmd, args = false ] = command.split(' ');
+    const [ x, y, facing ] = args ? args.split(',') : [];
+    return { cmd, args: {x, y, facing } }
+}
 
-    return {state, output: ''}
+// receives the command and position and returns the position and output - if any
+const runCommand = (prevState, command) => {
+    const { cmd, args } = parseCommand(command);
+
+    const runner = commands[cmd];
+
+    const {state, output} = runner(prevState,args);
+    return {state, output};
+};
+
+const commands = {
+    "PLACE": (state, args) => {
+        const {x, y, facing } = args;
+        return { state: {x, y, facing} }
+    },
+    "REPORT": (state) => {
+        const {x, y, facing} = state;
+        return { output: `${x},${y},${facing}`}
+    },
 };
 
 /*
