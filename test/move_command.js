@@ -1,7 +1,7 @@
 "use strict";
 
 const assert = require('assert');
-const app = require('../src/index.js');
+const app = require('../src/command_handler.js');
 const MOVE = require('../src/cmd_move.js');
 
 // MOVE will move the bus one unit forward in the direction it is currently facing.

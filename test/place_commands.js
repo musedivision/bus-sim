@@ -1,7 +1,7 @@
 "use strict";
 
 const assert = require('assert');
-const app = require('../src/index.js')
+const app = require('../src/command_handler.js')
 
 // PLACE will put the bus in the carpark in position X,Y and facing NORTH, SOUTH,
 // EAST or WEST

@@ -1,7 +1,7 @@
 "use strict";
 
 const assert = require('assert');
-const app = require('../src/index.js');
+const app = require('../src/command_handler.js');
 
 // REPORT will announce the X,Y and F of the bus. This can be in any form, but
 // standard output is sufficient.

@@ -2,10 +2,11 @@
   "name": "bus-sim",
   "version": "1.0.0",
   "description": "Bus in a carpark simulator",
-  "main": "src/index.js",
+  "main": "src/command_handler.js",
   "scripts": {
     "install": "npm i -g mocha",
-    "test": "mocha"
+    "test": "mocha",
+    "start": "node ./src/app.js"
   },
   "repository": {
     "type": "git",

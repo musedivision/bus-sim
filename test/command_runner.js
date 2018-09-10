@@ -1,7 +1,7 @@
 "use strict";
 
 const assert = require('assert');
-const app = require('../src/index.js');
+const app = require('../src/command_handler.js');
 
 
 function checkFinalOutput(cmds, expected_o, expected_s){

@@ -1,10 +1,10 @@
 "use strict";
 
 const assert = require('assert');
-const app = require('../src/index.js');
+const handler = require('../src/command_handler');
 
 
-let state0 = app.initState();
+let state0 = handler.initState();
 
 describe('INVALID PLACE COMMAND', function() {
 
@@ -12,29 +12,29 @@ describe('INVALID PLACE COMMAND', function() {
 
         it('should not change state if facing is INVALID', function(){
 
-            let { state } = app.runCommand(state0, "PLACE 0,1,df");
+            let { state } = handler.runCommand(state0, "PLACE 0,1,df");
             assert.deepEqual(state, state0);
 
         }),
 
         it('should not change state if x > 5', function(){
 
-            assert.deepEqual( app.runCommand(state0, "PLACE 6,1,NORTH").state.x , state0.x);
+            assert.deepEqual( handler.runCommand(state0, "PLACE 6,1,NORTH").state.x , state0.x);
         }),
 
         it('should not change state if x < 0', function(){
 
-            assert.equal( app.runCommand(state0, "PLACE -1,1,NORTH").state.x , state0.x);
+            assert.equal( handler.runCommand(state0, "PLACE -1,1,NORTH").state.x , state0.x);
         }),
 
         it('should not change state if y > 5', function(){
 
-            assert.deepEqual( app.runCommand(state0, "PLACE 1,999,NORTH").state.x , state0.x);
+            assert.deepEqual( handler.runCommand(state0, "PLACE 1,999,NORTH").state.x , state0.x);
         }),
 
         it('should not change state if y < 0', function(){
 
-            assert.equal( app.runCommand(state0, "PLACE 0,-999,NORTH").state.x , state0.x);
+            assert.equal( handler.runCommand(state0, "PLACE 0,-999,NORTH").state.x , state0.x);
         })
 
     })

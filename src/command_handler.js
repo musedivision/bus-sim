@@ -1,5 +1,7 @@
 "use strict";
 
+const initState = require('./initState');
+
 const PLACE = require('./cmd_place');
 const REPORT = require('./cmd_report');
 const MOVE = require('./cmd_move');
@@ -13,10 +15,7 @@ const commands = {
     "RIGHT": right
 };
 
-// initialise the bus position / app state
-const initState = () => {
-    return {x: false,y: false, facing: false}
-};
+const isValidCommand = (cmd) => Object.keys(commands).includes(cmd);
 
 function parseCommand(command){
     const [ cmd, args = false ] = command.split(' ');
@@ -28,14 +27,14 @@ function parseCommand(command){
 }
 
 // receives the command and position and returns the position and output - if any
-const runCommand = (prevState, command) => {
-    const { cmd, args } = parseCommand(command);
+const runCommand = (prevState, commandString) => {
+    const { cmd, args } = parseCommand(commandString);
+
 
     const runner = commands[cmd];
-
     const {state, output} = runner(prevState,args);
 
-    // console.log({prevState, args, state, output, command});
+    // console.log({commandString, prevState, cmdARGS: args, newSTATE: state, output});
 
     return {state, output};
 };
@@ -45,8 +44,10 @@ const runCommand = (prevState, command) => {
  *
  *  should receive a list of commands
  *  REPORT command should return a string for the moment - implement Std out later
+ *
  */
 module.exports = {
+    isValidCommand,
     initState,
     runCommand,
     commands
