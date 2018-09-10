@@ -11,8 +11,7 @@ To run the tests type
  `npm test`
  
  
- 
- ### Start the application
+### Start the application
  
 ##### docker
 
