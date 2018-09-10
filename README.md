@@ -27,5 +27,5 @@ To run the tests type
  
 🕹START THE SIMULATION:
 
- ![alt text](./docs/example.png "Logo Title Text 1")
+ ![alt text](example.png "Logo Title Text 1")
  --
