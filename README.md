@@ -20,8 +20,8 @@ To run the tests type
  
 ##### npm
  
- dev `npm dev`
- production `npm prod`
+ dev `npm start`
+ production `npm run prod`
  
  
  
