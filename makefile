@@ -1,4 +1,5 @@
 SHELL:=/bin/bash
+.PHONY: test
 
 export PROJECT_NAME := bus_sim
 
@@ -13,6 +14,8 @@ run: ## Run container
 
 up: build run ## start app
 
+test:
+	mocha
 
 stop: ## Stop and remove a running container
 	-docker stop $(PROJECT_NAME) || true
