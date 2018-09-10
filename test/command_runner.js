@@ -3,7 +3,7 @@
 const assert = require('assert');
 const app = require('../src/command_handler.js');
 
-const state0 = app.initState();
+
 
 function checkFinalOutput(cmds, expected_o, expected_s){
 
@@ -54,15 +54,40 @@ describe('COMMAND RUNNER', function() {
             ];
             checkFinalOutput(cmds, '3,3,NORTH', {x: 3, y: 3, facing: "NORTH"});
 
-        }),
-
-        it('should not let you MOVE before a PLACE command', function(){
-
-            const cmds = [
-                'MOVE'
-            ];
-            checkFinalOutput(cmds, undefined, state0);
-
         })
+
+
+            /*
+            *
+            *  this error handling  was moved to app.js
+            *
+            * */
+
+        // it('should not let you MOVE before a PLACE command', function(){
+        //
+        //     const state0 = app.initState();
+        //     const cmds = [
+        //         'MOVE'
+        //     ];
+        //     checkFinalOutput(cmds, undefined, state0);
+        //
+        // })
+
+        // need to write a test for this
+
+        // sfd
+        // PLACE 0,0,NORHT
+        // ^[[APLACE
+        //     REPROT
+        //     REPORT
+        //     MOVE
+        //     LEFT
+        //     RIGHT
+        //     REPROT
+        //     REPORT
+        //
+        //     false,false,NORTH
+
+        // expected --> ignored REPORT
     })
 });
