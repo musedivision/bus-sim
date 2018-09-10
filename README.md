@@ -1,4 +1,4 @@
-# Bus Sim 🚍
+# Bus Sim 2018 🚍
 
 
 ### Get started
@@ -6,7 +6,7 @@ install all the dependencies
 
 `npm i`
 
-✅ to run the tests type
+to run the tests type
 
  `npm test`
  
@@ -24,6 +24,7 @@ install all the dependencies
  
  --
  
-START THE SIMULATION:
+🕹START THE SIMULATION:
+
  ![alt text](./docs/example.png "Logo Title Text 1")
  --
