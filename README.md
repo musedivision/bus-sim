@@ -2,11 +2,11 @@
 
 
 ### Get started
-install all the dependencies
+Install all the dependencies
 
 `npm i`
 
-to run the tests type
+To run the tests type
 
  `npm test`
  
@@ -18,12 +18,6 @@ to run the tests type
 
  `make up`
  
-##### node
- 
- `NODE_ENV=production node app.js` 
- 
-  or development mode
-  `node app.js`
  
  ##### npm
  
