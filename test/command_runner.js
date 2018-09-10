@@ -57,21 +57,17 @@ describe('COMMAND RUNNER', function() {
         })
 
 
-            /*
-            *
-            *  this error handling  was moved to app.js
-            *
-            * */
 
-        // it('should not let you MOVE before a PLACE command', function(){
-        //
-        //     const state0 = app.initState();
-        //     const cmds = [
-        //         'MOVE'
-        //     ];
-        //     checkFinalOutput(cmds, undefined, state0);
-        //
-        // })
+
+        it('should not let you MOVE before a PLACE command', function(){
+
+            const state0 = app.initState();
+            const cmds = [
+                'MOVE'
+            ];
+            checkFinalOutput(cmds, undefined, state0);
+
+        })
 
         // need to write a test for this
 
@@ -89,5 +85,16 @@ describe('COMMAND RUNNER', function() {
         //     false,false,NORTH
 
         // expected --> ignored REPORT
+        it('should not let you RIGHT / LEFT before a PLACE command', function(){
+
+            const state0 = app.initState();
+            const cmds = [
+                'RIGHT',
+                'REPORT'
+            ];
+            checkFinalOutput(cmds, undefined, state0);
+
+        })
+
     })
 });

@@ -14,13 +14,21 @@ to run the tests type
  
  ### Start the application
  
- thinking about putting into a docker container fo portability bonus
+##### docker
+
+ `make up`
  
- run dev
- `node app.js`
+##### node
  
- run production
- `NODE_ENV=production node app.js`
+ `NODE_ENV=production node app.js` 
+ 
+  or development mode
+  `node app.js`
+ 
+ ##### npm
+ 
+ dev `npm dev`
+ production `npm prod`
  
  --
  

@@ -20,8 +20,16 @@ const state0 = initState();
 const CAN_ONLY_RUN_AFTER_PLACE = [ "MOVE", "LEFT", "RIGHT"];
 const safeToRun = (cmd, state) => {
 
-    console.log(CAN_ONLY_RUN_AFTER_PLACE.includes(cmd), state, state0, state !== state0);
-    return CAN_ONLY_RUN_AFTER_PLACE.includes(cmd) && state !== state0;
+    // console.log("CHECKING CMD SAFE", cmd)
+    // console.log("state is good", state.x !== false);
+    // console.log("good command", !CAN_ONLY_RUN_AFTER_PLACE.includes(cmd));
+    // console.log("&&", CAN_ONLY_RUN_AFTER_PLACE.includes(cmd) && (state.x !== false) );
+
+    if(!CAN_ONLY_RUN_AFTER_PLACE.includes(cmd)){
+        return true
+    }
+
+    return (state.x !== false);
 };
 
 
@@ -41,9 +49,9 @@ function parseCommand(command){
 const runCommand = (prevState, commandString) => {
     const { cmd, args } = parseCommand(commandString);
 
-    // if(!safeToRun(cmd, prevState)){
-    //     return { prevState }
-    // }
+    if(!safeToRun(cmd, prevState)){
+        return { state: prevState }
+    }
 
     const runner = commands[cmd];
     const {state, output} = runner(prevState,args);
