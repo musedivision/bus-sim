@@ -3,6 +3,7 @@
 const assert = require('assert');
 const app = require('../src/command_handler.js');
 
+const state0 = app.initState();
 
 function checkFinalOutput(cmds, expected_o, expected_s){
 
@@ -52,6 +53,15 @@ describe('COMMAND RUNNER', function() {
                 'REPORT'
             ];
             checkFinalOutput(cmds, '3,3,NORTH', {x: 3, y: 3, facing: "NORTH"});
+
+        }),
+
+        it('should not let you MOVE before a PLACE command', function(){
+
+            const cmds = [
+                'MOVE'
+            ];
+            checkFinalOutput(cmds, undefined, state0);
 
         })
     })

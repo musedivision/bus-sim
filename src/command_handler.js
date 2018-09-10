@@ -15,7 +15,18 @@ const commands = {
     "RIGHT": right
 };
 
-const isValidCommand = (cmd) => Object.keys(commands).includes(cmd);
+const state0 = initState();
+
+const CAN_ONLY_RUN_AFTER_PLACE = [ "MOVE", "LEFT", "RIGHT"];
+const safeToRun = (cmd, state) => {
+
+    console.log(CAN_ONLY_RUN_AFTER_PLACE.includes(cmd), state, state0, state !== state0);
+    return CAN_ONLY_RUN_AFTER_PLACE.includes(cmd) && state !== state0;
+};
+
+
+const verbs = Object.keys(commands);
+const isValidCommand = (cmd) => verbs.includes(cmd);
 
 function parseCommand(command){
     const [ cmd, args = false ] = command.split(' ');
@@ -30,6 +41,9 @@ function parseCommand(command){
 const runCommand = (prevState, commandString) => {
     const { cmd, args } = parseCommand(commandString);
 
+    // if(!safeToRun(cmd, prevState)){
+    //     return { prevState }
+    // }
 
     const runner = commands[cmd];
     const {state, output} = runner(prevState,args);
@@ -47,6 +61,8 @@ const runCommand = (prevState, commandString) => {
  *
  */
 module.exports = {
+    parseCommand,
+    verbs,
     isValidCommand,
     initState,
     runCommand,
