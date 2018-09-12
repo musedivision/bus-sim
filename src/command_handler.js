@@ -15,15 +15,11 @@ const commands = {
     "RIGHT": right
 };
 
-const state0 = initState();
-
 const CAN_ONLY_RUN_AFTER_PLACE = [ "MOVE", "LEFT", "RIGHT"];
-const safeToRun = (cmd, state) => {
+const verbs = Object.keys(commands);
+const isValidCommand = (cmd) => verbs.includes(cmd);
 
-    // console.log("CHECKING CMD SAFE", cmd)
-    // console.log("state is good", state.x !== false);
-    // console.log("good command", !CAN_ONLY_RUN_AFTER_PLACE.includes(cmd));
-    // console.log("&&", CAN_ONLY_RUN_AFTER_PLACE.includes(cmd) && (state.x !== false) );
+const safeToRun = (cmd, state) => {
 
     if(!CAN_ONLY_RUN_AFTER_PLACE.includes(cmd)){
         return true
@@ -32,9 +28,6 @@ const safeToRun = (cmd, state) => {
     return (state.x !== false);
 };
 
-
-const verbs = Object.keys(commands);
-const isValidCommand = (cmd) => verbs.includes(cmd);
 
 function parseCommand(command){
     const [ cmd, args = false ] = command.split(' ');
@@ -56,18 +49,10 @@ const runCommand = (prevState, commandString) => {
     const runner = commands[cmd];
     const {state, output} = runner(prevState,args);
 
-    // console.log({commandString, prevState, cmdARGS: args, newSTATE: state, output});
-
     return {state, output};
 };
 
-/*
- *  BUS SIMULATOR
- *
- *  should receive a list of commands
- *  REPORT command should return a string for the moment - implement Std out later
- *
- */
+
 module.exports = {
     parseCommand,
     verbs,

@@ -67,7 +67,7 @@ describe('COMMAND RUNNER', function() {
             ];
             checkFinalOutput(cmds, undefined, state0);
 
-        })
+        }),
 
         // need to write a test for this
 

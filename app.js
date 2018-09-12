@@ -1,19 +1,19 @@
 "use strict";
-const { NODE_ENV } = process.env
+const  NODE_ENV  = process.env.NODE_ENV || "production";
 
-const { initState, runCommand, parseCommand, verbs } = require('./src/command_handler');
+const { initState, runCommand } = require('./src/command_handler');
 
 const clean = (s) => s.toString().trim();
 const isDev = () => NODE_ENV !== 'production';
 
-const logTimestep = (app) => {
-    const { x, y, facing } = app.timestep.state;
 
-    console.log(
-    `-- timestep ${app.history.length}
-        space: ${x}, ${y}, ${facing}
-        ${app.timestep}
-        
+const welcomeMessage = () => {
+    console.log(` 
+         Welcome to 
+      🚍 Bus Sim 2018 🚍
+         
+         YOUR MOVE 🕹
+    
     `)
 };
 
@@ -29,32 +29,36 @@ let app = {
 
 const step = (stdin) => {
 
-
-
     try {
-        let { state, output } = app.timestep;
+        let { state } = app.timestep;
 
         // RUN commands
         const COMMAND = clean(stdin);
-        // const { cmd, args } = parseCommand(COMMAND);
-
         let timestep = runCommand(state, COMMAND);
 
+        // update application state
         app.timestep = timestep;
         app.history.push(timestep);
 
+        // print output if required
         if(timestep.output){
             process.stdout.write(`\n${timestep.output} \n`)
         }
 
-        isDev() ? logTimestep(app) : ''
 
     } catch(e) {
-        // do nothing
+        // do nothing in production
         isDev() ? console.log("ERROR handled -->",e) : ''
 
     }
 
 };
 
+process.on('SIGINT', function() {
+    console.log("\n\n\n ⚡️ Unplugging simulator 🔌");
+    process.exit();
+});
+
 process.stdin.on('data', step );
+
+welcomeMessage();
