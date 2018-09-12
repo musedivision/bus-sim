@@ -1,6 +1,6 @@
 {
   "name": "bus-sim",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "Bus in a carpark simulator",
   "main": "src/command_handler.js",
   "scripts": {
