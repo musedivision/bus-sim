@@ -20,8 +20,8 @@ run: ## Run container
 up: stop build run ## start app
 
 
-test:
-	mocha
+test: ## Code Coverage and Unit Tests
+	nyc mocha
 
 stop: ## Stop and remove a running container
 	-docker stop $(PROJECT_NAME) || true
@@ -31,6 +31,7 @@ clean:
 	#-docker rmi $$(docker images --quiet --filter "dangling=true")
 	-docker rmi -f $$(docker images | grep "^<none>" | awk '{print $3}')
 	-docker rmi -f $$(docker images --filter='reference=$(PROJECT_NAME)' -a -q)
+	rm -rf node_modules
 
 ##################################################################################################
 #    publish  container

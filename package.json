@@ -5,7 +5,7 @@
   "main": "src/command_handler.js",
   "scripts": {
     "install": "npm i -g mocha",
-    "test": "mocha",
+    "test": "nyc mocha",
     "dev": "NODE_ENV=development node ./app.js",
     "prod": "node app.js"
   },
@@ -18,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/musedivision/bus-sim/issues"
   },
-  "homepage": "https://github.com/musedivision/bus-sim#readme"
+  "homepage": "https://github.com/musedivision/bus-sim#readme",
+  "devDependencies": {
+    "nyc": "^13.0.1"
+  }
 }
