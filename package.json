@@ -6,8 +6,8 @@
   "scripts": {
     "install": "npm i -g mocha",
     "test": "mocha",
-    "start": "node ./app.js",
-    "prod": "NODE_ENV=production node app.js"
+    "dev": "NODE_ENV=development node ./app.js",
+    "prod": "node app.js"
   },
   "repository": {
     "type": "git",

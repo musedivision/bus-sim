@@ -1,6 +1,7 @@
 # Bus Sim 2018 🚍
 
 
+
 ### Get started
 Install all the dependencies
 
@@ -12,16 +13,17 @@ To run the tests type
  
  
 ### Start the application
- 
-##### docker
 
+from docker hub
+
+`docker run -i musedivision/bus-sim`
+ 
+ 
+##### build it locally
+docker
  `make up`
- 
- 
-##### npm
- 
- dev `npm start`
- production `npm run prod`
+  
+npm `npm run dev`  or  `npm run prod`
  
  
  

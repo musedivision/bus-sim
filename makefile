@@ -2,7 +2,6 @@ SHELL:=/bin/bash
 .PHONY: test
 
 export DOCKER_REPO_URL := musedivision
-#export DOCKER_ID_USER  := "musedivision"
 export PROJECT_NAME := bus-sim
 export VERSION=$(shell jq -rM '.version' package.json)
 
@@ -42,11 +41,11 @@ release: build-nc publish ## Make a release
 # Docker publish
 publish: publish-latest publish-version ## Publish the `{version}` ans `latest` tagged containers
 
-publish-latest: tag-latest ## Publish the `latest` tagged container to ECR
+publish-latest: tag-latest ## Publish the `latest` tagged container
 	@echo 'publish latest to $(DOCKER_REPO_URL)'
 	docker push $(DOCKER_REPO_URL)/$(PROJECT_NAME):latest
 
-publish-version: tag-version ## Publish the `{version}` tagged container to ECR
+publish-version: tag-version ## Publish the `{version}` tagged container
 	@echo 'publish $(VERSION) to $(DOCKER_REPO_URL)'
 	docker push $(DOCKER_REPO_URL)/$(PROJECT_NAME):$(VERSION)
 
